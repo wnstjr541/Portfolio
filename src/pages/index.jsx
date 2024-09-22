@@ -127,7 +127,6 @@ const Main = () => {
   const [childSwiper, setChildSwiper] = useState(null); // 자식 스와이퍼 상태 관리
   const [workChildSwiper, setWorkChildSwiper] = useState(null); // 자식 스와이퍼 상태 관리
   const delay = 500; // 지연 시간 (500ms)
-
   const parentSwiperRef = useRef(null);
   const childSwiperRef = useRef(null);
   const workChildSwiperRef = useRef(null);
