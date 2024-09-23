@@ -854,7 +854,7 @@ const Main = () => {
             w="100%"
             m="0 auto"
             h="100vh"
-            bg="#fff"
+            bg={{ base: "#000", md: "#fff" }}
           >
             <Swiper
               onSwiper={setWorkChildSwiper} // 자식 스와이퍼가 초기화되면 저장
