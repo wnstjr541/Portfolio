@@ -433,7 +433,8 @@ const Main = () => {
             <HStack w={"100%"} zIndex={"3"} maxW={"100%"}>
               <Text
                 fontFamily={"Helvetica75"}
-                fontSize={"17rem"}
+                fontSize={{ base: "10.8rem", md: "17.8rem" }}
+                lineHeight={"100%"}
                 fontWeight={"bold"}
               >
                 YOUR VISION,
@@ -453,7 +454,8 @@ const Main = () => {
               </Text>
               <Text
                 fontFamily={"Helvetica75"}
-                fontSize={"17.8rem"}
+                fontSize={{ base: "10.8rem", md: "17.8rem" }}
+                lineHeight={"100%"}
                 fontWeight={"bold"}
               >
                 MY
@@ -465,7 +467,8 @@ const Main = () => {
             >
               <Text
                 fontFamily={"Helvetica75"}
-                fontSize={"17.8rem"}
+                fontSize={{ base: "10.8rem", md: "17.8rem" }}
+                lineHeight={"100%"}
                 fontWeight={"bold"}
               >
                 Code
@@ -510,17 +513,17 @@ const Main = () => {
             h="100%"
             justifyContent={"center"}
             margin={"0 auto"}
-            spacing={"10rem"}
+            spacing={{ base: "5rem", md: "10rem" }}
             p={{ base: "2rem", xl: "0" }}
           >
             <VStack
               w={"100%"}
-              fontSize={"6.4rem"}
+              fontSize={{ base: "5rem", md: "6.4rem" }}
               justify={"flex-end"}
               align={{ base: "flex-start", xl: "flex-end" }}
               fontWeight={"bold"}
               fontFamily={"Inter"}
-              lineHeight={"140%"}
+              lineHeight={{ base: "140%", md: "100%" }}
               flexWrap={"wrap"}
             >
               <Text as={"span"} whiteSpace={"normal"}>
@@ -541,7 +544,7 @@ const Main = () => {
             </VStack>
             <VStack
               w={"100%"}
-              fontSize={"2.8rem"}
+              fontSize={{ base: "2rem", md: "2.8rem" }}
               fontWeight={"medium"}
               fontFamily={"Inter"}
               lineHeight={"140%"}
@@ -867,14 +870,13 @@ const Main = () => {
               <SwiperSlide
                 style={{
                   width: "100%",
-                  height: "100%",
                 }}
               >
                 <VStack
                   ref={vStackWorkRef}
                   align="center"
                   w="100%"
-                  h="100%"
+                  h="100vh"
                   justifyContent={"center"}
                 >
                   <Heading
@@ -902,7 +904,7 @@ const Main = () => {
               {projectList.map((data, index) => (
                 <SwiperSlide pos="relative" key={index}>
                   <HStack
-                    spacing={"19.2rem"}
+                    spacing={{ base: "5rem", md: "19.2rem" }}
                     w="100%"
                     h="100%"
                     pos="absolute"
@@ -916,11 +918,16 @@ const Main = () => {
                     <VStack
                       spacing={"1.5rem"}
                       w="100%"
+                      h="calc(50% - 2.5rem)"
                       align={"flex-start"}
                       onClick={() => window.open(data[0].projectLink, "_blank")}
                       cursor={"pointer"}
                     >
-                      <AspectRatio w="100%" h="100%" ratio={7 / 5}>
+                      <AspectRatio
+                        w="100%"
+                        h="calc(100% - 7.6rem)"
+                        ratio={7 / 5}
+                      >
                         <Image
                           w="100%"
                           h="100%"
@@ -928,35 +935,44 @@ const Main = () => {
                           alt=""
                         />
                       </AspectRatio>
-
-                      <Heading
-                        as="h4"
-                        fontFamily={"Inter"}
-                        fontSize={"2.8rem"}
-                        lineHeight={"140%"}
-                      >
-                        {data[0].projectName}
-                      </Heading>
-                      <Text
-                        fontFamily={"Inter"}
-                        fontWeight={"Medium"}
-                        fontSize={"1.6rem"}
-                        color={"rgba(255, 255, 255, 0.4)"}
-                        lineHeight={"140%"}
-                      >
-                        {data[0].projectStack}
-                      </Text>
+                      <VStack w="100%" h="7.6rem" alignItems={"flex-start"}>
+                        <Heading
+                          as="h4"
+                          fontFamily={"Inter"}
+                          fontSize={"2.8rem"}
+                          lineHeight={"140%"}
+                        >
+                          {data[0].projectName}
+                        </Heading>
+                        <Text
+                          fontFamily={"Inter"}
+                          fontWeight={"Medium"}
+                          fontSize={"1.6rem"}
+                          color={"rgba(255, 255, 255, 0.4)"}
+                          lineHeight={"140%"}
+                        >
+                          {data[0].projectStack}
+                        </Text>
+                      </VStack>
                     </VStack>
 
                     <VStack
                       spacing={"1.5rem"}
                       w="100%"
+                      h="calc(50% - 2.5rem)"
                       align={"flex-start"}
                       onClick={() => window.open(data[1].projectLink, "_blank")}
                       cursor={"pointer"}
-                      transform="translateY(40%)"
+                      transform={{
+                        base: "translateY(0%)",
+                        md: "translateY(40%)",
+                      }}
                     >
-                      <AspectRatio w="100%" h="100%" ratio={7 / 5}>
+                      <AspectRatio
+                        w="100%"
+                        h="calc(100% - 7.6rem)"
+                        ratio={7 / 5}
+                      >
                         <Image
                           w="100%"
                           h="100%"
@@ -965,23 +981,25 @@ const Main = () => {
                           objectFit="cover"
                         />
                       </AspectRatio>
-                      <Heading
-                        as="h4"
-                        fontFamily={"Inter"}
-                        fontSize={"2.8rem"}
-                        lineHeight={"140%"}
-                      >
-                        {data[1].projectName}
-                      </Heading>
-                      <Text
-                        fontFamily={"Inter"}
-                        fontWeight={"Medium"}
-                        fontSize={"1.6rem"}
-                        color={"rgba(255, 255, 255, 0.4)"}
-                        lineHeight={"140%"}
-                      >
-                        {data[1].projectStack}
-                      </Text>
+                      <VStack w="100%" h="7.6rem" alignItems={"flex-start"}>
+                        <Heading
+                          as="h4"
+                          fontFamily={"Inter"}
+                          fontSize={"2.8rem"}
+                          lineHeight={"140%"}
+                        >
+                          {data[1].projectName}
+                        </Heading>
+                        <Text
+                          fontFamily={"Inter"}
+                          fontWeight={"Medium"}
+                          fontSize={"1.6rem"}
+                          color={"rgba(255, 255, 255, 0.4)"}
+                          lineHeight={"140%"}
+                        >
+                          {data[1].projectStack}
+                        </Text>
+                      </VStack>
                     </VStack>
                   </HStack>
                 </SwiperSlide>
