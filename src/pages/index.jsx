@@ -374,7 +374,7 @@ const Main = () => {
         mt={5}
         pos={"absolute"}
         right={"4rem"}
-        bottom={"4rem"}
+        bottom={{ base: "8rem", md: "4rem" }}
         zIndex={"99"}
         cursor={"pointer"}
         onClick={goToFirstSlide} // 클릭 이벤트 추가
@@ -913,7 +913,7 @@ const Main = () => {
                     maxW="1604px"
                     flexDirection={{ base: "column", md: "row" }}
                     justifyContent={{ base: "center", md: "flex-start" }}
-                    p={{ base: "2rem", md: "0" }}
+                    p={{ base: "6rem 2rem", md: "2rem" }}
                   >
                     <VStack
                       spacing={"1.5rem"}
