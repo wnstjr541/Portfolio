@@ -186,11 +186,10 @@ const Main = () => {
   }, [parentSwiper, childSwiper]);
 
   // work
-  const [direction, setDirection] = useState("horizontal"); // 기본 방향을 가로로 설정
+  const [direction, setDirection] = useState("horizontal");
 
   const updateDirection = () => {
     if (window.innerWidth < 768) {
-      // 모바일 기준 (원하는 px 값으로 조정)
       setDirection("vertical");
     } else {
       setDirection("horizontal");
@@ -198,7 +197,7 @@ const Main = () => {
   };
 
   useEffect(() => {
-    updateDirection(); // 컴포넌트가 마운트될 때 방향 업데이트
+    updateDirection();
     window.addEventListener("resize", updateDirection);
     return () => {
       window.removeEventListener("resize", updateDirection);
@@ -287,7 +286,7 @@ const Main = () => {
     // 애니메이션 설정
     gsap.to(footerTextRef.current, {
       x: `-${containerWidth / 2}`, // 텍스트가 반만 이동하도록 설정
-      duration: 12, // 애니메이션 속도
+      duration: 14, // 애니메이션 속도
       ease: "linear", // 일정한 속도로 움직임
       repeat: -1, // 무한 반복
       modifiers: {
@@ -525,6 +524,7 @@ const Main = () => {
               fontFamily={"Inter"}
               lineHeight={{ base: "140%", md: "100%" }}
               flexWrap={"wrap"}
+              spacing="1.5rem"
             >
               <Text as={"span"} whiteSpace={"normal"}>
                 저의 소통 능력으로
@@ -649,7 +649,11 @@ const Main = () => {
                     Activity
                   </Heading>
                   <VStack spacing={"1.6rem"}>
-                    <UnorderedList spacing={"3.2rem"}>
+                    <UnorderedList
+                      spacing={"3.2rem"}
+                      fontSize=" 2.3rem;"
+                      color={"rgba(255, 255, 255, 0.4)"}
+                    >
                       <ListItem>
                         <VStack spacing={"1.2rem"} alignItems={"flex-start"}>
                           <Text
@@ -752,7 +756,11 @@ const Main = () => {
                     Work
                   </Heading>
                   <VStack spacing={"1.6rem"}>
-                    <UnorderedList spacing={"3.2rem"}>
+                    <UnorderedList
+                      spacing={"3.2rem"}
+                      fontSize=" 2.3rem;"
+                      color={"rgba(255, 255, 255, 0.4)"}
+                    >
                       <ListItem>
                         <VStack spacing={"1.2rem"} alignItems={"flex-start"}>
                           <Text
@@ -884,7 +892,7 @@ const Main = () => {
                     as="h2"
                     lineHeight="100%"
                     fontFamily="Helvetica75"
-                    fontSize="18rem"
+                    fontSize="20rem"
                     fontWeight="bold"
                   >
                     My
@@ -894,7 +902,7 @@ const Main = () => {
                     as="h2"
                     lineHeight="100%"
                     fontFamily="Platypi"
-                    fontSize="18rem"
+                    fontSize="20rem"
                     fontStyle="Italic"
                   >
                     Works
