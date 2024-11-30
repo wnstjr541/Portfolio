@@ -32,9 +32,11 @@ import workBar from "../assets/img/work_bar.png";
 import darkStar from "../assets/img/dark_star.png";
 
 import schoolWork from "../assets/img/school_work.png";
+import adminPage from "../assets/img/admin.png";
 import kobacoWork from "../assets/img/kobaco_work.png";
 import JigyeongWork from "../assets/img/Jigyeong_work.png";
 import calculatingWork from "../assets/img/calculating_work.png";
+import metaRex from "../assets/img/metaREX.png";
 import climateWork from "../assets/img/climate_work.png";
 import redcrossWork from "../assets/img/redcross_work.png";
 
@@ -119,6 +121,20 @@ const Main = () => {
         projectSrc: kobacoWork,
         projectStack: "UI/UX, Website, Development, Maintenance",
         projectLink: "https://www.kobaco.co.kr/",
+      },
+    ],
+    [
+      {
+        projectName: "메타렉스",
+        projectSrc: metaRex,
+        projectStack: "UI/UX, Website, Development, Maintenance",
+        projectLink: "https://metarex.global/map",
+      },
+      {
+        projectName: "관리자, 미출시 페이지",
+        projectSrc: adminPage,
+        projectStack: "UI/UX, Website, Development, Maintenance",
+        projectLink: "#",
       },
     ],
   ];
@@ -309,6 +325,22 @@ const Main = () => {
   // 첫 번째 슬라이드로 이동하는 함수
   const goToFirstSlide = () => {
     parentSwiper.slideTo(0); // 첫 번째 페이지로 이동
+  };
+
+  const [isFlipped, setIsFlipped] = useState(
+    projectList.map((group) => group.map(() => false))
+  );
+
+  // 특정 SwiperSlide의 특정 카드 flip 상태를 변경하는 함수 slideIndex는 부모 key, cardIndex 는 자식 key
+  const handleFlip = (slideIndex, cardIndex, value) => {
+    setIsFlipped((prev) => {
+      const newState = prev.map((group, i) =>
+        i === slideIndex
+          ? group.map((flipped, j) => (j === cardIndex ? value : flipped))
+          : group
+      );
+      return newState;
+    });
   };
 
   return (
@@ -662,7 +694,7 @@ const Main = () => {
                             lineHeight={"140%"}
                             color={"rgba(255, 255, 255, 0.6)"}
                           >
-                            2021. 08 ~ 2022. 04(9개월)
+                            2011. 03 ~ 2014. 02(9개월)
                           </Text>
                           <Text
                             fontWeight={"medium"}
@@ -671,7 +703,7 @@ const Main = () => {
                             lineHeight={"140%"}
                             color={"rgba(255, 255, 255, 0.8)"}
                           >
-                            고등학교
+                            온양고등학교
                           </Text>
                         </VStack>
                       </ListItem>
@@ -909,10 +941,9 @@ const Main = () => {
                   </Heading>
                 </VStack>
               </SwiperSlide>
-              {projectList.map((data, index) => (
-                <SwiperSlide pos="relative" key={index}>
+              {projectList.map((projects, slideIndex) => (
+                <SwiperSlide key={slideIndex} pos="relative">
                   <HStack
-                    spacing={{ base: "5rem", md: "19.2rem" }}
                     w="100%"
                     h="100%"
                     pos="absolute"
@@ -920,95 +951,115 @@ const Main = () => {
                     transform={"translateX(-50%)"}
                     maxW="1604px"
                     flexDirection={{ base: "column", md: "row" }}
-                    justifyContent={{ base: "center", md: "flex-start" }}
+                    justifyContent={{ base: "center", md: "space-between" }}
                     p={{ base: "6rem 2rem", md: "2rem" }}
                   >
-                    <VStack
-                      spacing={"1.5rem"}
-                      w="100%"
-                      h="calc(50% - 2.5rem)"
-                      align={"flex-start"}
-                      onClick={() => window.open(data[0].projectLink, "_blank")}
-                      cursor={"pointer"}
-                    >
-                      <AspectRatio
-                        w="100%"
-                        h="calc(100% - 7.6rem)"
-                        ratio={7 / 5}
-                      >
-                        <Image
+                    {projects.map((project, cardIndex) => (
+                      <Box key={cardIndex} w="100%" h="100%" maxW={"686px"}>
+                        <VStack
+                          spacing="1.5rem"
                           w="100%"
-                          h="100%"
-                          src={data[0].projectSrc}
-                          alt=""
-                        />
-                      </AspectRatio>
-                      <VStack w="100%" h="7.6rem" alignItems={"flex-start"}>
-                        <Heading
-                          as="h4"
-                          fontFamily={"Inter"}
-                          fontSize={"2.8rem"}
-                          lineHeight={"140%"}
+                          maxH={"500px"}
+                          h={{ base: "100%", md: "calc(50% - 2.5rem)" }}
+                          align="flex-start"
+                          cursor="pointer"
+                          pos="relative"
+                          top={"50%"}
+                          transform={"translateY(-50%)"}
+                          onClick={() =>
+                            window.open(project.projectLink, "_blank")
+                          }
+                          onMouseEnter={() =>
+                            handleFlip(slideIndex, cardIndex, true)
+                          }
+                          onMouseLeave={() =>
+                            handleFlip(slideIndex, cardIndex, false)
+                          }
                         >
-                          {data[0].projectName}
-                        </Heading>
-                        <Text
-                          fontFamily={"Inter"}
-                          fontWeight={"Medium"}
-                          fontSize={"1.6rem"}
-                          color={"rgba(255, 255, 255, 0.4)"}
-                          lineHeight={"140%"}
-                        >
-                          {data[0].projectStack}
-                        </Text>
-                      </VStack>
-                    </VStack>
+                          {/* 앞면 */}
+                          <VStack
+                            maxW={"686px"}
+                            w="100%"
+                            h="100%"
+                            transition="transform 0.6s"
+                            transform={
+                              isFlipped[slideIndex][cardIndex]
+                                ? "rotateY(180deg)"
+                                : "rotateY(0deg)"
+                            }
+                            bg={"transparent"}
+                            zIndex={
+                              isFlipped[slideIndex][cardIndex] ? "1" : "2"
+                            }
+                          >
+                            <AspectRatio
+                              w="100%"
+                              h="calc(100% - 7.6rem)"
+                              ratio={7 / 5}
+                            >
+                              <Image
+                                w="100%"
+                                h="100%"
+                                src={project.projectSrc}
+                                alt={project.projectName}
+                              />
+                            </AspectRatio>
+                            <VStack
+                              w="100%"
+                              h="7.6rem"
+                              alignItems="flex-start"
+                              justify={"flex-end"}
+                            >
+                              <Heading
+                                as="h4"
+                                fontFamily="Inter"
+                                fontSize="2.8rem"
+                                lineHeight="140%"
+                              >
+                                {project.projectName}
+                              </Heading>
+                              <Text
+                                fontFamily="Inter"
+                                fontWeight="Medium"
+                                fontSize="1.6rem"
+                                color="rgba(255, 255, 255, 0.4)"
+                                lineHeight="140%"
+                              >
+                                {project.projectStack}
+                              </Text>
+                            </VStack>
+                          </VStack>
 
-                    <VStack
-                      spacing={"1.5rem"}
-                      w="100%"
-                      h="calc(50% - 2.5rem)"
-                      align={"flex-start"}
-                      onClick={() => window.open(data[1].projectLink, "_blank")}
-                      cursor={"pointer"}
-                      transform={{
-                        base: "translateY(0%)",
-                        md: "translateY(40%)",
-                      }}
-                    >
-                      <AspectRatio
-                        w="100%"
-                        h="calc(100% - 7.6rem)"
-                        ratio={7 / 5}
-                      >
-                        <Image
-                          w="100%"
-                          h="100%"
-                          src={data[1].projectSrc}
-                          alt=""
-                          objectFit="cover"
-                        />
-                      </AspectRatio>
-                      <VStack w="100%" h="7.6rem" alignItems={"flex-start"}>
-                        <Heading
-                          as="h4"
-                          fontFamily={"Inter"}
-                          fontSize={"2.8rem"}
-                          lineHeight={"140%"}
-                        >
-                          {data[1].projectName}
-                        </Heading>
-                        <Text
-                          fontFamily={"Inter"}
-                          fontWeight={"Medium"}
-                          fontSize={"1.6rem"}
-                          color={"rgba(255, 255, 255, 0.4)"}
-                          lineHeight={"140%"}
-                        >
-                          {data[1].projectStack}
-                        </Text>
-                      </VStack>
-                    </VStack>
+                          {/* 뒷면 */}
+                          <VStack
+                            pos="absolute"
+                            w="100%"
+                            maxW={"686px"}
+                            h="100%"
+                            transition="transform 0.6s"
+                            transform={
+                              isFlipped[slideIndex][cardIndex]
+                                ? "rotateY(0deg)"
+                                : "rotateY(-180deg)"
+                            }
+                            zIndex={
+                              isFlipped[slideIndex][cardIndex] ? "2" : "1"
+                            }
+                            display="flex"
+                            justifyContent="center"
+                            alignItems="center"
+                            bg={
+                              isFlipped[slideIndex][cardIndex]
+                                ? "gray.800"
+                                : "transparent"
+                            }
+                            color="white"
+                          >
+                            <Text fontSize="2xl">More Info</Text>
+                          </VStack>
+                        </VStack>
+                      </Box>
+                    ))}
                   </HStack>
                 </SwiperSlide>
               ))}
