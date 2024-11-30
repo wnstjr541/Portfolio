@@ -924,7 +924,7 @@ const Main = () => {
                     as="h2"
                     lineHeight="100%"
                     fontFamily="Helvetica75"
-                    fontSize="20rem"
+                    fontSize={{ base: "15rem", md: "20rem" }}
                     fontWeight="bold"
                   >
                     My
@@ -934,7 +934,7 @@ const Main = () => {
                     as="h2"
                     lineHeight="100%"
                     fontFamily="Platypi"
-                    fontSize="20rem"
+                    fontSize={{ base: "15rem", md: "20rem" }}
                     fontStyle="Italic"
                   >
                     Works
@@ -955,7 +955,12 @@ const Main = () => {
                     p={{ base: "6rem 2rem", md: "2rem" }}
                   >
                     {projects.map((project, cardIndex) => (
-                      <Box key={cardIndex} w="100%" h="100%" maxW={"686px"}>
+                      <Box
+                        key={cardIndex}
+                        w="100%"
+                        maxW={"686px"}
+                        h={{ base: "50%", md: "100%" }}
+                      >
                         <VStack
                           spacing="1.5rem"
                           w="100%"

@@ -27,6 +27,6 @@ html,
 @media screen and (max-width: 500px) {
   html,
   :root {
-    font-size: 8px;
+    font-size: 6px;
   }
 }
