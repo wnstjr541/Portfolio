@@ -1,15 +1,18 @@
 import React, { useRef, useEffect } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import star from "../../assets/img/star.png";
 
 export default function ThreeBackground() {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    // Renderer
+    if (!canvasRef.current) return;
+
     const renderer = new THREE.WebGLRenderer({
       canvas: canvasRef.current,
       antialias: true,
+      alpha: true,
     });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(window.devicePixelRatio > 1 ? 2 : 1);
@@ -24,7 +27,7 @@ export default function ThreeBackground() {
       0.1,
       1000
     );
-    camera.position.set(0, 1.5, 4);
+    camera.position.set(0, 0, 5);
     scene.add(camera);
 
     // Light
@@ -50,7 +53,7 @@ export default function ThreeBackground() {
 
     // Texture
     const textureLoader = new THREE.TextureLoader();
-    const particleTexture = textureLoader.load("/images/star.png");
+    const particleTexture = textureLoader.load(star);
 
     const material = new THREE.PointsMaterial({
       size: 0.3,
@@ -58,6 +61,7 @@ export default function ThreeBackground() {
       transparent: true,
       alphaMap: particleTexture,
       depthWrite: false,
+      blending: THREE.AdditiveBlending,
     });
 
     const particles = new THREE.Points(geometry, material);
@@ -97,7 +101,7 @@ export default function ThreeBackground() {
         left: 0,
         width: "100vw",
         height: "100vh",
-        zIndex: -1, // Ensure it stays behind the main content
+        zIndex: 10,
       }}
     />
   );

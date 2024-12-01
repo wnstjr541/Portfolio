@@ -44,6 +44,8 @@ import progressLabel from "../assets/img/progress_label.png";
 import mainBgVideo from "../assets/video/main_bg.mp4";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import CreateScene from "./organisme/CreateScene";
+import { Canvas } from "@react-three/fiber";
 
 // ScrollTrigger를 GSAP에 등록
 gsap.registerPlugin(ScrollTrigger);
@@ -73,12 +75,12 @@ const Main = () => {
     "css",
     "jquery",
     "javaScript",
-    "react",
-    "gulp",
     "chakra-ui",
-    "typeScript",
+    "react",
     "SCSS",
     "gasp",
+    "gulp",
+    // "typeScript",
   ];
   const projectList = [
     [
@@ -866,19 +868,30 @@ const Main = () => {
                   >
                     Skill
                   </Heading>
-                  <VStack spacing={"1.2rem"} alignItems={"flex-start"}>
-                    {skillList.map((tech, index) => (
-                      <Text
-                        key={index}
-                        fontWeight={"medium"}
-                        fontSize={"2.6rem"}
-                        fontFamily={"Inter"}
-                        lineHeight={"140%"}
-                        color={"rgba(255, 255, 255, 0.8)"}
-                      >
-                        {tech}
-                      </Text>
-                    ))}
+                  <VStack
+                    spacing={"1.2rem"}
+                    alignItems={"flex-start"}
+                    cursor={"pointer"}
+                    maxW={"300px"}
+                  >
+                    <Canvas>
+                      <CreateScene />
+                    </Canvas>
+                    <HStack flexWrap={"wrap"}>
+                      {skillList.map((tech, index) => (
+                        <Text
+                          key={index}
+                          fontWeight={"medium"}
+                          fontSize={"2.6rem"}
+                          fontFamily={"Inter"}
+                          lineHeight={"140%"}
+                          color={"rgba(255, 255, 255, 0.8)"}
+                        >
+                          {tech}
+                          {index !== skillList.length - 1 ? " ," : ""}
+                        </Text>
+                      ))}
+                    </HStack>
                   </VStack>
                 </VStack>
               </SwiperSlide>
@@ -975,6 +988,7 @@ const Main = () => {
                             window.open(project.projectLink, "_blank")
                           }
                           onMouseEnter={() =>
+                            !(cardIndex === 1 && slideIndex === 3) &&
                             handleFlip(slideIndex, cardIndex, true)
                           }
                           onMouseLeave={() =>
@@ -984,8 +998,8 @@ const Main = () => {
                           {/* 앞면 */}
                           <VStack
                             maxW={"686px"}
-                            w="100%"
                             h="100%"
+                            w={"100%"}
                             transition="transform 0.6s"
                             transform={
                               isFlipped[slideIndex][cardIndex]
@@ -1038,8 +1052,8 @@ const Main = () => {
                           {/* 뒷면 */}
                           <VStack
                             pos="absolute"
-                            w="100%"
-                            maxW={"686px"}
+                            left="-0.5px"
+                            w="calc(100% + 1px)"
                             h="100%"
                             transition="transform 0.6s"
                             transform={
@@ -1059,6 +1073,7 @@ const Main = () => {
                                 : "transparent"
                             }
                             color="white"
+                            maxW={"687px"}
                           >
                             <Text fontSize="2xl">More Info</Text>
                           </VStack>
