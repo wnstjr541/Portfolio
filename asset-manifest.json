@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.bd6cbf1b.css",
-    "main.js": "/portfolio/static/js/main.7458b498.js",
+    "main.js": "/portfolio/static/js/main.f7bb6b18.js",
     "static/js/453.9f3ad44e.chunk.js": "/portfolio/static/js/453.9f3ad44e.chunk.js",
     "static/media/main_bg.mp4": "/portfolio/static/media/main_bg.085df5df5c52b4521619.mp4",
     "static/media/Jigyeong_work.png": "/portfolio/static/media/Jigyeong_work.4c020a25b48c2124f82d.png",
@@ -11,14 +11,17 @@
     "static/media/school_work.png": "/portfolio/static/media/school_work.c6c6a76f8a8e4969eea4.png",
     "static/media/calculating_work.png": "/portfolio/static/media/calculating_work.79dd7d60fbb5ac459437.png",
     "static/media/redcross_work.png": "/portfolio/static/media/redcross_work.fdbd7b9746a3459ffb9d.png",
+    "static/media/css.png": "/portfolio/static/media/css.463e319bad8e0edf1ef7.png",
+    "static/media/html.png": "/portfolio/static/media/html.ff3cf75e3b7cbb4ea77c.png",
+    "static/media/js.png": "/portfolio/static/media/js.3dfb665e058d08c99f28.png",
     "static/media/logo.svg": "/portfolio/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/portfolio/index.html",
     "main.bd6cbf1b.css.map": "/portfolio/static/css/main.bd6cbf1b.css.map",
-    "main.7458b498.js.map": "/portfolio/static/js/main.7458b498.js.map",
+    "main.f7bb6b18.js.map": "/portfolio/static/js/main.f7bb6b18.js.map",
     "453.9f3ad44e.chunk.js.map": "/portfolio/static/js/453.9f3ad44e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.bd6cbf1b.css",
-    "static/js/main.7458b498.js"
+    "static/js/main.f7bb6b18.js"
   ]
 }
