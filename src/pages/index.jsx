@@ -39,6 +39,7 @@ import calculatingWork from "../assets/img/calculating_work.png";
 import metaRex from "../assets/img/metaREX.png";
 import climateWork from "../assets/img/climate_work.png";
 import redcrossWork from "../assets/img/redcross_work.png";
+import youtubeWork from "../assets/img/youtube_work.png";
 
 import progressLabel from "../assets/img/progress_label.png";
 import mainBgVideo from "../assets/video/main_bg.mp4";
@@ -87,13 +88,13 @@ const Main = () => {
       {
         projectName: "학교체육포털",
         projectSrc: schoolWork,
-        projectStack: "UI/UX, Website, Development, Maintenance",
+        projectStack: "UI/UX, Development, Maintenance",
         projectLink: "https://cspep.or.kr/web/main/main",
       },
       {
         projectName: "법무법인 지경",
         projectSrc: JigyeongWork,
-        projectStack: "UI/UX, Website, Development, Maintenance",
+        projectStack: "UI/UX, Development, Maintenance",
         projectLink: "https://www.jklawfirm.co.kr/",
       },
     ],
@@ -101,13 +102,13 @@ const Main = () => {
       {
         projectName: "e-기후변화교육센터",
         projectSrc: climateWork,
-        projectStack: "UI/UX, Website, Maintenance",
+        projectStack: "UI/UX, Maintenance",
         projectLink: "https://educenter.kcen.kr/",
       },
       {
         projectName: "적십자",
         projectSrc: redcrossWork,
-        projectStack: "UI/UX, Website, Maintenance",
+        projectStack: "UI/UX, Maintenance",
         projectLink: "https://www.rch.or.kr/web/rchseoul/main/",
       },
     ],
@@ -115,13 +116,13 @@ const Main = () => {
       {
         projectName: "탄소발자국 계산기",
         projectSrc: calculatingWork,
-        projectStack: "UI/UX, Website, Development, Maintenance",
+        projectStack: "UI/UX, Development, Maintenance",
         projectLink: "https://www.kcen.kr/tanso/intro.green",
       },
       {
         projectName: "코바코 ",
         projectSrc: kobacoWork,
-        projectStack: "UI/UX, Website, Development, Maintenance",
+        projectStack: "UI/UX, Development, Maintenance",
         projectLink: "https://www.kobaco.co.kr/",
       },
     ],
@@ -129,14 +130,22 @@ const Main = () => {
       {
         projectName: "메타렉스",
         projectSrc: metaRex,
-        projectStack: "UI/UX, Website, Development, Maintenance",
+        projectStack: "UI/UX, Development, Maintenance",
         projectLink: "https://metarex.global/map",
       },
       {
         projectName: "관리자, 미출시 페이지",
         projectSrc: adminPage,
-        projectStack: "UI/UX, Website, Development, Maintenance",
+        projectStack: "UI/UX, Development, Maintenance",
         projectLink: "#",
+      },
+    ],
+    [
+      {
+        projectName: "유튜브 ",
+        projectSrc: youtubeWork,
+        projectStack: "개인 작업물, 디자인변경 예정",
+        projectLink: "https://wnstjr541.github.io/youtube/",
       },
     ],
   ];
