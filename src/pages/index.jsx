@@ -134,18 +134,18 @@ const Main = () => {
         projectLink: "https://metarex.global/map",
       },
       {
-        projectName: "관리자, 미출시 페이지",
-        projectSrc: adminPage,
-        projectStack: "UI/UX, Development, Maintenance",
-        projectLink: "#",
-      },
-    ],
-    [
-      {
         projectName: "유튜브 ",
         projectSrc: youtubeWork,
         projectStack: "개인 작업물, 디자인변경 예정",
         projectLink: "https://wnstjr541.github.io/youtube/",
+      },
+    ],
+    [
+      {
+        projectName: "관리자, 미출시 페이지",
+        projectSrc: adminPage,
+        projectStack: "UI/UX, Development, Maintenance",
+        projectLink: "#",
       },
     ],
   ];
@@ -705,7 +705,7 @@ const Main = () => {
                             lineHeight={"140%"}
                             color={"rgba(255, 255, 255, 0.6)"}
                           >
-                            2011. 03 ~ 2014. 02(9개월)
+                            2011. 03 ~ 2014. 02
                           </Text>
                           <Text
                             fontWeight={"medium"}
@@ -812,7 +812,7 @@ const Main = () => {
                             lineHeight={"140%"}
                             color={"rgba(255, 255, 255, 0.6)"}
                           >
-                            2021. 08 ~ 2022. 04(9개월)
+                            2021. 08 ~ 2022. 04
                           </Text>
                           <Text
                             fontWeight={"medium"}
@@ -833,7 +833,7 @@ const Main = () => {
                             lineHeight={"140%"}
                             color={"rgba(255, 255, 255, 0.6)"}
                           >
-                            2023. 03 ~ 2024.08(1년 6개월)
+                            2023. 03 ~ 2024.08
                           </Text>
                           <Text
                             fontWeight={"medium"}
