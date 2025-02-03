@@ -997,7 +997,7 @@ const Main = () => {
                             window.open(project.projectLink, "_blank")
                           }
                           onMouseEnter={() =>
-                            !(cardIndex === 1 && slideIndex === 3) &&
+                            !(cardIndex === 1 && slideIndex === 4) &&
                             handleFlip(slideIndex, cardIndex, true)
                           }
                           onMouseLeave={() =>
@@ -1084,7 +1084,23 @@ const Main = () => {
                             color="white"
                             maxW={"687px"}
                           >
-                            <Text fontSize="2xl">More Info</Text>
+                            <Text fontSize={{ base: "3xl", md: "2xl" }}>
+                              More Info
+                            </Text>
+                            <Text
+                              fontSize={{ base: "2xl", md: "1xl" }}
+                              pos={"absolute"}
+                              bottom={"5rem"}
+                              display={
+                                isFlipped[slideIndex][cardIndex]
+                                  ? "block"
+                                  : "none"
+                              }
+                              p="1rem"
+                            >
+                              디자인을 제외한 퍼블리싱의 전체 과정을 단독으로
+                              수행하여 기여도 표기는 생략하였습니다.
+                            </Text>
                           </VStack>
                         </VStack>
                       </Box>
